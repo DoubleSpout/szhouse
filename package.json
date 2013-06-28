@@ -10,7 +10,7 @@
     "node",
     "szhouse"
   ],
-  "version": "0.1.1",
+  "version": "0.1.2",
   "url": "https://github.com/DoubleSpout/szhouse",
   "homepage": "https://github.com/DoubleSpout/szhouse",
   "repository": {
@@ -22,14 +22,15 @@
     "node":">=0.10.0"
   },
   "dependencies":{
-        "jsdom":"0.6.5"
+       "jsdom":"0.6.5",
+       "tset":"node ./test/main.js",
+       "async":"0.2.9",
+       "log4js":"0.6.6",
+       "nodemailer":"0.4.4",
+       "request":"2.21.0"
   },
   "scripts": {
-    "tset":"node ./test/main.js",
-    "async":"0.2.9",
-    "log4js":"0.6.6",
-    "nodemailer":"0.4.4",
-    "request":"2.21.0"
+   
   },
   "bin": {
     "szhouse": "./szhouse_bin"

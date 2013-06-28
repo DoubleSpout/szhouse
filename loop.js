@@ -5,8 +5,8 @@ var loop_time = 1000*60*60*24;
 
 log4js.configure({
   appenders: [
-    //{ type: 'console' },
-    { type: 'file', filename: './logs/cheese.log', category: 'cheese' }
+    { type: 'console' },
+    { type: 'file', filename: __dirname+'/logs/cheese.log', category: 'cheese' }
   ]
 });
 var logger = log4js.getLogger('cheese');

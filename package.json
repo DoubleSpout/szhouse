@@ -10,7 +10,7 @@
     "node",
     "szhouse"
   ],
-  "version": "0.1.0",
+  "version": "0.1.1",
   "url": "https://github.com/DoubleSpout/szhouse",
   "homepage": "https://github.com/DoubleSpout/szhouse",
   "repository": {
@@ -30,5 +30,8 @@
     "log4js":"0.6.6",
     "nodemailer":"0.4.4",
     "request":"2.21.0"
+  },
+  "bin": {
+    "szhouse": "./szhouse_bin"
   }
 }

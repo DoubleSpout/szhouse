@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+var path = require('path');
+var cp = require('child_process');
+require(__dirname+path.sep+'loop.js');

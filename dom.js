@@ -14,7 +14,7 @@ var house_name_array = require('./read_txt.js');
 
 
 var logger = log4js.getLogger('cheese');
-var jquery = fs.readFileSync("./deps/jquery.1.7.1.js").toString();
+var jquery = fs.readFileSync(__dirname+"/deps/jquery.1.7.1.js").toString();
 
 
 

@@ -3,10 +3,10 @@ String.prototype.trim= function(){
     // 用空字符串替代。  
     return this.replace(/(^\s*)|(\s*$)/g, "");  
 }
-
+var path = require('path');
 var pos_str = '---';
 var fs = require('fs');
-var txt_content = fs.readFileSync("./house.txt").toString();
+var txt_content = fs.readFileSync(__dirname+"/house.txt").toString();
 var all_array = txt_content.split('\n').map(function(v,i){
 	if(~v.indexOf('--')) return pos_str
 	return v.trim();

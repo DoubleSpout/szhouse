@@ -1,7 +1,7 @@
 var cluster = require('cluster');
 var loop_fn = require('./dom.js').loop_fn;
 var log4js = require('log4js');
-var loop_time = 1000*60*60*24;
+var loop_time = 1000*60*60*8;
 
 log4js.configure({
   appenders: [

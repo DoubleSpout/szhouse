@@ -5,11 +5,8 @@ var log4js = require('log4js');
 var request = require('request');
 
 var send_mail = require('./mail.js');
-var house_name_array = require('./read_txt.js');
-
-
-
-
+var house_name_array
+var get_txt = require('./read_txt.js');
 
 
 
@@ -19,18 +16,27 @@ var jquery = fs.readFileSync(__dirname+"/deps/jquery.1.7.1.js").toString();
 
 
 var HOUSE_URL = 'http://www.szfcweb.com/szfcweb/DataSerach/CanSaleHouseSelectIndex.aspx'
+var is_send = false;
 
-var get_count = function(){
+var error_fn = function(err){
+	is_send =false;
+	return logger.error(err); 
+}
 
+var get_count = function(err, array){
+if(err) return error_fn(err)
 
+house_name_array = array;
 logger.info("send start");
-	
+
+is_send = true;
 
 	jsdom.env({
 	  html:HOUSE_URL,
 	  src:[jquery],
 	  done:function (errors, window) {
-		  	if(errors) return logger.error(errors);
+		  	if(errors) return error_fn(errors);
+
 		  	var jq = window.$;
 		  	var href_array =[];
 		  	var result_array = [];
@@ -72,6 +78,7 @@ logger.info("send start");
 									count:-1
 								});
 							}
+							console.log(v.name + ' done');
 							callback();
 						}).form(obj)
 
@@ -82,16 +89,17 @@ logger.info("send start");
 				async.series(async_array,
 				// optional callback
 				function(err, results){
-					if(err) return logger.error(err);
+					if(err) return error_fn(err);;
 			    	var str = "";
 			    	result_array.forEach(function(v,i){
 			    		str += v.name +'\t'+v.count+'\n<br/>';
 			    	})
 
 			    	send_mail(str, function(err,response){ //去发送邮件
-			    		if(err) return logger.error(err);
+			    		if(err) return error_fn(err);;
 			    		//console.log(response)
 			    		logger.info("send end");
+			    		is_send = false;
 			    	})
 	
 				});
@@ -100,7 +108,13 @@ logger.info("send start");
 	
 	});//end jsdom
 
-
+	
+	setTimeout(function(){ //如果超时重启进程
+		if(is_send){
+			error_fn('time out');
+			process.exit(0);
+		} 
+	},1000*60*10)
 
 
 };
@@ -108,4 +122,7 @@ logger.info("send start");
 
 
 
-exports.loop_fn = get_count;
+exports.loop_fn = function(){ 
+	get_txt(get_count);
+	
+};

@@ -1,3 +1,15 @@
 [2013-06-29 01:02:13.145] [INFO] cheese - send start
 [2013-06-29 01:02:23.809] [INFO] cheese - send end
 [2013-06-29 01:20:24.072] [INFO] cheese - send start
+[2013-06-30 16:51:26.370] [FATAL] cheese - worker 2760 died
+[2013-06-30 16:51:27.608] [FATAL] cheese - worker 2284 died
+[2013-06-30 16:51:50.099] [INFO] cheese - send start
+[2013-06-30 16:52:01.585] [INFO] cheese - send end
+[2013-06-30 17:00:03.619] [INFO] cheese - send start
+[2013-06-30 17:00:04.634] [ERROR] cheese - time out
+[2013-06-30 17:00:04.659] [FATAL] cheese - worker 2452 died
+[2013-06-30 17:00:05.624] [INFO] cheese - send start
+[2013-06-30 17:00:06.630] [ERROR] cheese - time out
+[2013-06-30 17:00:06.653] [FATAL] cheese - worker 2408 died
+[2013-06-30 17:01:13.791] [INFO] cheese - send start
+[2013-06-30 17:01:33.408] [INFO] cheese - send end

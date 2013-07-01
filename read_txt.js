@@ -45,9 +45,7 @@ request.get('http://qinglang.w66a.bolead.com/house.txt', function (e, r, body) {
 				is_zz:0
 			})
 		})
-
-		console.log(house_name_array)
-		return 
+ 
 		cb&&cb(null, house_name_array);
 
  })

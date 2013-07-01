@@ -59,8 +59,9 @@ is_send = true;
 					async_array.push(function(callback){
 
 						var obj = JSON.parse(JSON.stringify(form_obj));
-						obj["ctl00$MainContent$txt_Pro"] = v.name
+						obj["ctl00$MainContent$txt_Pro"] = v.name;
 						obj["ctl00$MainContent$ddl_houseclass"] = v.is_zz ? 'HC001' : 'HC002';
+						obj["ctl00$MainContent$txt_Com"] = v.build;
 						var r = request.post(HOUSE_URL,function(e,res,body){
 							if(e) return callback(e);
 							var zz_r = reg.exec(body);

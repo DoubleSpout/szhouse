@@ -29,19 +29,25 @@ request.get('http://qinglang.w66a.bolead.com/house.txt', function (e, r, body) {
 		var house_name_array = [];
 
 		zhu_zhai.forEach(function(v){
+			var v_ary = v.split('-');
 			house_name_array.push({
-				name:v,
+				name:v_ary[0] || '',
+				build:v_ary[1] || '',
 				is_zz:1
 			})
 		})
 
 		fei_zhu_zhai.forEach(function(v){
+			var v_ary = v.split('-');
 			house_name_array.push({
-				name:v,
+				name:v_ary[0] || '',
+				build:v_ary[1] || '',
 				is_zz:0
 			})
 		})
 
+		console.log(house_name_array)
+		return 
 		cb&&cb(null, house_name_array);
 
  })

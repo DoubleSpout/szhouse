@@ -103,7 +103,7 @@ is_send = true;
 			    	var space = " "
 			    	result_array.forEach(function(v,i){
 			    		var iszz = v.zz ? '住宅' : '非住宅'
-			    		str += iszz + '-' + v.name||space +'-' + v.build||space + '-' + v.sq_min||space + '*' + v.sq_max||space +'-'+v.count+'\n<br/>';
+			    		str += iszz + '-' + v.name +'-' + v.build||space + '-' + v.sq_min||space + '*' + v.sq_max||space +'-'+v.count+'\n<br/>';
 			    	})
 
 			    	send_mail(str, function(err,response){ //去发送邮件

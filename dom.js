@@ -62,6 +62,10 @@ is_send = true;
 						obj["ctl00$MainContent$txt_Pro"] = v.name;
 						obj["ctl00$MainContent$ddl_houseclass"] = v.is_zz ? 'HC001' : 'HC002';
 						obj["ctl00$MainContent$txt_Com"] = v.build;
+						obj["ctl00$MainContent$rb_HF_CODE"] = "-1"
+						obj["ctl00$MainContent$txt_Area1"] = v.sq_min;
+						obj["ctl00$MainContent$txt_Area2"] = v.sq_max;
+
 						var r = request.post(HOUSE_URL,function(e,res,body){
 							if(e) return callback(e);
 							var zz_r = reg.exec(body);
@@ -69,6 +73,10 @@ is_send = true;
 								zz_r = /\d+/.exec(zz_r[0]);
 								result_array.push({
 									name:v.name,
+									zz:v.zz,
+									build:v.build,
+									sq_min:v.sq_min,
+									sq_max:v.sq_max,
 									count:zz_r[0]
 								});
 								
@@ -92,8 +100,10 @@ is_send = true;
 				function(err, results){
 					if(err) return error_fn(err);;
 			    	var str = "";
+			    	var space = " "
 			    	result_array.forEach(function(v,i){
-			    		str += v.name +'\t'+v.count+'\n<br/>';
+			    		var iszz = v.zz ? '住宅' : '非住宅'
+			    		str += iszz + '-' + v.name||space +'-' + v.build||space + '-' + v.sq_min||space + '*' + v.sq_max||space +'-'+v.count+'\n<br/>';
 			    	})
 
 			    	send_mail(str, function(err,response){ //去发送邮件
@@ -115,7 +125,7 @@ is_send = true;
 			error_fn('time out');
 			process.exit(0);
 		} 
-	},1000*60*10)
+	},1000*60*30)
 
 
 };

@@ -17,3 +17,39 @@
 [2013-07-01 19:35:44.594] [INFO] cheese - send end
 [2013-07-01 21:42:07.604] [INFO] cheese - send start
 [2013-07-01 21:42:21.799] [INFO] cheese - send end
+[2013-07-11 19:28:17.135] [FATAL] cheese - worker 2936 died
+[2013-07-11 19:28:18.305] [FATAL] cheese - worker 5292 died
+[2013-07-11 19:28:19.444] [FATAL] cheese - worker 5268 died
+[2013-07-11 19:30:54.227] [INFO] cheese - send start
+[2013-07-11 19:30:56.180] [ERROR] cheese - [Error: Authentication required, invalid details provided]
+Error: Authentication required, invalid details provided
+    at SMTPTransport.sendMail (F:\github\szhouse\node_modules\nodemailer\lib\engines\smtp.js:118:22)
+    at Transport.sendMailWithTransport (F:\github\szhouse\node_modules\nodemailer\lib\transport.js:66:20)
+    at Nodemailer.sendMail (F:\github\szhouse\node_modules\nodemailer\lib\nodemailer.js:186:20)
+    at F:\github\szhouse\node_modules\nodemailer\lib\nodemailer.js:69:20
+    at Nodemailer.validateSettings (F:\github\szhouse\node_modules\nodemailer\lib\nodemailer.js:173:5)
+    at sendMail (F:\github\szhouse\node_modules\nodemailer\lib\nodemailer.js:63:12)
+    at Transport.transport.sendMail (F:\github\szhouse\node_modules\nodemailer\lib\nodemailer.js:40:9)
+    at send_mail (F:\github\szhouse\mail.js:36:16)
+    at F:\github\szhouse\dom.js:100:9
+    at F:\github\szhouse\node_modules\async\lib\async.js:229:13
+[2013-07-11 19:31:09.438] [INFO] cheese - send start
+[2013-07-11 19:31:50.563] [INFO] cheese - send start
+[2013-07-11 19:32:43.166] [INFO] cheese - send start
+[2013-07-11 19:34:10.627] [INFO] cheese - send start
+[2013-07-11 19:43:22.639] [INFO] cheese - send start
+[2013-07-11 19:44:16.036] [INFO] cheese - send start
+[2013-07-11 19:44:43.209] [INFO] cheese - send start
+[2013-07-11 19:45:09.887] [INFO] cheese - send start
+[2013-07-11 19:46:17.607] [INFO] cheese - send start
+[2013-07-11 19:46:49.634] [INFO] cheese - send start
+[2013-07-11 19:56:22.939] [FATAL] cheese - worker 5460 died
+[2013-07-11 19:56:23.892] [FATAL] cheese - worker 6016 died
+[2013-07-11 19:56:24.855] [FATAL] cheese - worker 2364 died
+[2013-07-11 19:57:07.272] [FATAL] cheese - worker 5124 died
+[2013-07-11 19:57:08.432] [FATAL] cheese - worker 5656 died
+[2013-07-11 19:58:00.230] [FATAL] cheese - worker 7336 died
+[2013-07-11 19:58:01.193] [FATAL] cheese - worker 436 died
+[2013-07-11 19:58:47.044] [INFO] cheese - send start
+[2013-07-11 20:02:50.710] [INFO] cheese - send start
+[2013-07-11 20:03:43.301] [INFO] cheese - send start

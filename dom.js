@@ -73,24 +73,28 @@ is_send = true;
 								zz_r = /\d+/.exec(zz_r[0]);
 								result_array.push({
 									name:v.name,
-									zz:v.zz,
+									is_zz:v.is_zz,
 									build:v.build,
 									sq_min:v.sq_min,
 									sq_max:v.sq_max,
-									count:zz_r[0]
+									count:zz_r[0] || 0
 								});
 								
 							}
 							else{
 								result_array.push({
 									name:v.name,
+									is_zz:v.is_zz,
+									build:v.build,
+									sq_min:v.sq_min,
+									sq_max:v.sq_max,
 									count:-1
 								});
 							}
-							console.log(v.name + ' done');
+							console.log(v.name + 'done')
 							callback();
 						}).form(obj)
-
+						
 					})
 				})
 
@@ -98,13 +102,15 @@ is_send = true;
 				async.series(async_array,
 				// optional callback
 				function(err, results){
+					
 					if(err) return error_fn(err);;
 			    	var str = "";
 			    	var space = " "
 			    	result_array.forEach(function(v,i){
-			    		var iszz = v.zz ? '住宅' : '非住宅'
-			    		str += iszz + '-' + v.name +'-' + v.build||space + '-' + v.sq_min||space + '*' + v.sq_max||space +'-'+v.count+'\n<br/>';
-			    	})
+			    		var iszz = v.is_zz ? '住宅' : '非住宅'
+			    		str += iszz + '-' + v.name +'-' + v.build + '-' + v.sq_min + '*' + v.sq_max +'-'+v.count+'\n<br/>';
+			    	
+					})
 
 			    	send_mail(str, function(err,response){ //去发送邮件
 			    		if(err) return error_fn(err);;

@@ -1,4 +1,5 @@
 var cluster = require('cluster');
+var schedule = require('node-schedule');
 var loop_fn = require('./dom.js').loop_fn;
 var log4js = require('log4js');
 var loop_time = 1000*60*60*8;
@@ -24,9 +25,15 @@ if (cluster.isMaster) {
   });
 } else {
     loop_fn();
-	setInterval(function(){
-		loop_fn();
-	},loop_time)
+	
+	var rule = new schedule.RecurrenceRule();
+	rule.dayOfWeek = [new schedule.Range(0, 6)];
+	rule.hour = 19;
+	rule.minute = 0;
+
+	var j = schedule.scheduleJob(rule, function(){
+	   loop_fn();
+	});
 }
 
 

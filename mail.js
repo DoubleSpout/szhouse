@@ -26,7 +26,7 @@ var send_mail = function(string,callback){
 	// setup e-mail data with unicode symbols
 	var mailOptions = {
 	    from: "loushenghai1981 ✔ <"+qq_acc.user+">", // sender address
-	    to: "655028@qq.com, 53822985@qq.com", // list of receivers
+	    to: "655028@qq.com, 53822985@qq.com,  627611981@qq.com, 53051592@qq.com", // list of receivers
 	    subject: "szhouse ✔", // Subject line
 	    //text: string, // plaintext body
 	    html: string+"<br/><br/><br/><b>"+tips+" ✔</b>" // html body
